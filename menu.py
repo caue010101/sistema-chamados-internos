@@ -1,4 +1,4 @@
-from chamados import *
+import chamados
 
 
 def menu():
@@ -18,22 +18,22 @@ def menu():
         opcao = input("Escolha uma das opçoes ")
 
         if (opcao == "1"):
-            cadastrar_chamado()
+            chamados.cadastrar_chamado()
 
         elif (opcao == "2"):
-            listar_chamado()
+            chamados.listar_chamado()
 
         elif (opcao == "3"):
-            buscar_chamado()
+            chamados.buscar_chamado()
 
         elif (opcao == "4"):
-            atualizar_chamado()
+            chamados.atualizar_chamado()
 
         elif (opcao == "5"):
-            finalizar_chamado()
+            chamados.finalizar_chamado()
 
         elif (opcao == "6"):
-            relatorio_geral()
+            chamados.relatorio_geral()
 
         elif (opcao == "0"):
             print("Encerrando... ")
