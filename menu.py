@@ -1,4 +1,5 @@
 import chamados
+from buscar_chamadas import *
 
 
 def menu():
@@ -15,28 +16,40 @@ def menu():
         print("6 - Status geral ")
         print("0 - Sair ")
 
-        opcao = input("Escolha uma das opçoes ")
+        opcao = input("Escolha uma das opções ")
 
-        if (opcao == "1"):
+        if opcao == "1":
+
             chamados.cadastrar_chamado()
 
-        elif (opcao == "2"):
+        elif opcao == "2":
+
             chamados.listar_chamado()
 
-        elif (opcao == "3"):
-            chamados.buscar_chamado()
+        elif opcao == "3":
 
-        elif (opcao == "4"):
+            procurar_chamado()
+
+        elif opcao == "4":
+
             chamados.atualizar_chamado()
 
-        elif (opcao == "5"):
+        elif opcao == "5":
+
             chamados.finalizar_chamado()
 
-        elif (opcao == "6"):
+        elif opcao == "6":
+
             chamados.relatorio_geral()
 
-        elif (opcao == "0"):
-            print("Encerrando... ")
+        elif opcao == "0":
+
+            print("Encerrando...")
             break
+
         else:
-            print("Opçao invalida, tente novamente ")
+
+            print("Opção inválida, tente novamente")
+
+
+menu()
