@@ -38,6 +38,7 @@ def listar_chamado():
 
 
 def buscar_chamado():
+
     with open('data/chamados.json', 'r') as f:
         chamados = json.load(f)
 
