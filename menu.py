@@ -1,5 +1,4 @@
 import chamados
-from buscar_chamadas import *
 
 
 def menu():
@@ -28,7 +27,7 @@ def menu():
 
         elif opcao == "3":
 
-            procurar_chamado()
+            chamados.buscar_chamado()
 
         elif opcao == "4":
 
@@ -50,6 +49,3 @@ def menu():
         else:
 
             print("Opção inválida, tente novamente")
-
-
-menu()
