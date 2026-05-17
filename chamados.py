@@ -100,8 +100,67 @@ def finalizar_chamado():
 
 
 def relatorio_geral():
-    pass
+    with open('data/chamados.json', 'r') as f:
+        chamados = json.load(f)
+
+        tipo_relatorio = input('Qual tipo de relatorio?\n1 por status\n2 por turma\n3 por urgência\n')
 
 
-def relatorio_geral():
-    pass
+    quantidade_aberto = 0
+    quantidade_fechado = 0
+    quantidade_em_andamento = 0
+    quantidade_turmas = 0
+
+    if tipo_relatorio == '1':
+        chamados_aef = input('Escolha o status\nAberto(1)\nEm andamento(2)\nFechado(3)\nGeral(4)\n')
+
+        if chamados_aef == '1':
+            for chamado in chamados:
+                if chamado['status'] == 'Aberto':
+                    quantidade_aberto += 1
+            print('Chamados Abertos:', quantidade_aberto)
+
+        elif chamados_aef == '2':
+            for chamado in chamados:
+                if chamado['status'] == 'Em andamento':
+                    quantidade_em_andamento += 1
+            print('Chamados Em andamento:', quantidade_em_andamento)
+
+        elif chamados_aef == '3':
+            for chamado in chamados:
+                if chamado['status'] == 'Finalizado':
+                    quantidade_fechado += 1
+            print('Chamados Finalizados:', quantidade_fechado)
+
+        elif chamados_aef == '4':
+            for chamado in chamados:
+                if chamado['status'] == 'Aberto':
+                    quantidade_aberto += 1
+                elif chamado['status'] == 'Em andamento':
+                    quantidade_em_andamento += 1
+                elif chamado['status'] == 'Finalizado':
+                    quantidade_fechado += 1
+            print('RELATORIO DE CHAMADOS')
+            print('Quantidade abertos:', quantidade_aberto)
+            print('Quantidade Em andamento:', quantidade_em_andamento)
+            print('Quantidade fechados:', quantidade_fechado)
+            print('Total:', quantidade_aberto + quantidade_em_andamento + quantidade_fechado)
+
+        else:
+            print('Relatório Inválido')
+
+    elif tipo_relatorio == '2':
+        turma = input('Digite a turma\n')
+        for chamado in chamados:
+            if chamado['turma'] == turma:
+                quantidade_turmas += 1
+        print('Total de Chamados na sala:', quantidade_turmas)
+
+    elif tipo_relatorio == '3':
+        prioridade = input('Digite a prioridade (Baixa/Media/Alta)\n')
+        quantidade_prioridade = 0
+        for chamado in chamados:
+            if chamado.get('prioridade') == prioridade:
+                quantidade_prioridade += 1
+        print(f'Total de chamados com prioridade {prioridade}:', quantidade_prioridade)
+
