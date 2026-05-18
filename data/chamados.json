@@ -5,18 +5,9 @@
     "turma": "3b",
     "problema": "pobreza",
     "descricao": "sou pobre",
-    "status": "aberto",
+    "status": "resolvido",
     "data_abertura": "2026-05-15",
-    "solucao": ""
-  },
-  {
-    "protocolo": "CH-002",
-    "nome": "flash",
-    "turma": "3a",
-    "problema": "seila",
-    "descricao": "todos",
-    "status": "aberto",
-    "data_abertura": "2026-05-15",
-    "solucao": ""
+    "prioridade": "alta",
+    "solucao": "Resolvido"
   }
 ]
