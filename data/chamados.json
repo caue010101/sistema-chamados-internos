@@ -5,6 +5,11 @@
     "turma": "3b",
     "problema": "pobreza",
     "descricao": "sou pobre",
+    "status": "resolvido",
+    "data_abertura": "2026-05-15",
+    "prioridade": "alta",
+    "solucao": "Resolvido"
+
     "status": "Finalizado",
     "data_abertura": "2026-05-15",
     "solucao": ""
@@ -18,5 +23,6 @@
     "status": "resolvido",
     "data_abertura": "2026-05-15",
     "solucao": "testando"
+
   }
 ]
