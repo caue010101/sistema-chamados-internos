@@ -85,11 +85,15 @@ def atualizar_chamado():
 
     protocolo = input('Digite o protocolo\n')
     novo_status = input('Novo Status:\n')
+
+
+
     encontrado = False
 
     for chamado in chamados:
         if chamado['protocolo'] == protocolo:
             chamado['status'] = novo_status
+
             encontrado = True
             break
 
@@ -122,6 +126,43 @@ def finalizar_chamado():
         print(f"Solucao registrada: {solucao}")
     else:
         print("Protocolo não encontrado")
+
+
+            encontrado = True
+
+            break
+    if encontrado:
+        with open('data/chamados.json', 'w') as f:
+            json.dump(chamado, f, indent=2, ensure_ascii=False)
+
+        print('Chamado realizado com sucesso')
+    else:
+        print('Chamdado não encontrado')
+
+
+def finalizar_chamado():
+
+    with open("data/chamados.json", "r") as f:
+        chamados = json.load(f)
+
+    protocolo = input("Digite seu protocolo: ")
+    solucao = input("Digite a solucao do problema: ")
+    encontrado = False
+
+    for chamado in chamados:
+        if (chamado['protocolo'] == protocolo):
+            chamado['status'] = 'resolvido'
+            chamado['solucao'] = solucao
+
+            encontrado = True
+            break
+    if encontrado:
+        with open('data/chamados.json', 'w') as f:
+            json.dump(chamados, f, indent=2, ensure_ascii=False)
+        print(f"Solucao registrada: {solucao} ")
+    else:
+        print("protocolo nao encontrado")
+
 
 
 def relatorio_geral():

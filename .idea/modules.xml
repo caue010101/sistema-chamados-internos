@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+feature/gerar_relatorio
       <module fileurl="file://$PROJECT_DIR$/.idea/sistema-chamados-internos-gerar_relatorio.iml" filepath="$PROJECT_DIR$/.idea/sistema-chamados-internos-gerar_relatorio.iml" />
+
+      <module fileurl="file://$PROJECT_DIR$/.idea/sistema-chamados-internos.iml" filepath="$PROJECT_DIR$/.idea/sistema-chamados-internos.iml" />
+
     </modules>
   </component>
 </project>

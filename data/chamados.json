@@ -9,5 +9,20 @@
     "data_abertura": "2026-05-15",
     "prioridade": "alta",
     "solucao": "Resolvido"
+
+    "status": "Finalizado",
+    "data_abertura": "2026-05-15",
+    "solucao": ""
+  },
+  {
+    "protocolo": "CH-002",
+    "nome": "flash",
+    "turma": "3a",
+    "problema": "seila",
+    "descricao": "todos",
+    "status": "resolvido",
+    "data_abertura": "2026-05-15",
+    "solucao": "testando"
+
   }
 ]

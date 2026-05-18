@@ -4,4 +4,9 @@
     <option name="sdkName" value="Python 3.14 (sistema-chamados-internos-gerar_relatorio)" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.14 (sistema-chamados-internos-gerar_relatorio)" project-jdk-type="Python SDK" />
+
+    <option name="sdkName" value="Python 3.14 (sistema-chamados-internos)" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.14 (sistema-chamados-internos)" project-jdk-type="Python SDK" />
+
 </project>
