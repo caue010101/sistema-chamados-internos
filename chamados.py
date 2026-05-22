@@ -2,12 +2,14 @@ import json
 from datetime import date
 chamados = []
 
+
 def cadastrar_chamado():
     nome = input("Digite seu nome: ")
     turma = input("Digite seu setor/turma: ")
     problema = input("Digite o tipo do problema ")
     descricao_problema = input("Descreva seu problema ")
-    prioridade = input("Qual seria a prioridade do seu problema (baixa, media, alta) ")
+    prioridade = input(
+        "Qual seria a prioridade do seu problema (baixa, media, alta) ")
 
     with open('data/chamados.json', 'r') as f:
         chamados = json.load(f)
@@ -34,7 +36,24 @@ def cadastrar_chamado():
 
 
 def listar_chamado():
-    pass
+    with open('data/chamados.json', 'r') as f:
+        chamados = json.load(f)
+
+    if not chamados:
+        print("Nenhum chamado encontrado.")
+        return
+
+    for chamado in chamados:
+        print(f"Protocolo: {chamado['protocolo']}")
+        print(f"Nome: {chamado['nome']}")
+        print(f"Turma: {chamado['turma']}")
+        print(f"Problema: {chamado['problema']}")
+        print(f"Descrição: {chamado['descricao']}")
+        print(f"Status: {chamado['status']}")
+        print(f"Prioridade: {chamado['prioridade']}")
+        print(f"Data abertura: {chamado['data_abertura']}")
+        print(f"Solução: {chamado['solucao'] or 'Pendente'}")
+        print("-" * 40)
 
 
 def buscar_chamado():
@@ -86,8 +105,6 @@ def atualizar_chamado():
     protocolo = input('Digite o protocolo\n')
     novo_status = input('Novo Status:\n')
 
-
-
     encontrado = False
 
     for chamado in chamados:
@@ -99,45 +116,11 @@ def atualizar_chamado():
 
     if encontrado:
         with open('data/chamados.json', 'w') as f:
-            json.dump(chamados, f, indent=2, ensure_ascii=False)  # ✅ corrigido: era chamado
+            # ✅ corrigido: era chamado
+            json.dump(chamados, f, indent=2, ensure_ascii=False)
         print('Chamado atualizado com sucesso')
     else:
         print('Chamado não encontrado')
-
-
-def finalizar_chamado():
-    with open("data/chamados.json", "r") as f:
-        chamados = json.load(f)
-
-    protocolo = input("Digite seu protocolo: ")
-    solucao = input("Digite a solucao do problema: ")
-    encontrado = False
-
-    for chamado in chamados:
-        if chamado['protocolo'] == protocolo:
-            chamado['status'] = 'resolvido'
-            chamado['solucao'] = solucao
-            encontrado = True
-            break
-
-    if encontrado:
-        with open('data/chamados.json', 'w') as f:
-            json.dump(chamados, f, indent=2, ensure_ascii=False)
-        print(f"Solucao registrada: {solucao}")
-    else:
-        print("Protocolo não encontrado")
-
-
-            encontrado = True
-
-            break
-    if encontrado:
-        with open('data/chamados.json', 'w') as f:
-            json.dump(chamado, f, indent=2, ensure_ascii=False)
-
-        print('Chamado realizado com sucesso')
-    else:
-        print('Chamdado não encontrado')
 
 
 def finalizar_chamado():
@@ -164,18 +147,19 @@ def finalizar_chamado():
         print("protocolo nao encontrado")
 
 
-
 def relatorio_geral():
     with open('data/chamados.json', 'r') as f:
         chamados = json.load(f)
 
-    tipo_relatorio = input('Qual tipo de relatorio?\n1 por status\n2 por urgencia\n')
+    tipo_relatorio = input(
+        'Qual tipo de relatorio?\n1 por status\n2 por urgencia\n')
     quantidade_aberto = 0
     quantidade_fechado = 0
     quantidade_em_andamento = 0
 
     if tipo_relatorio == '1':
-        chamados_aef = input('Escolha o status\nAberto(1)\nEm andamento(2)\nFechado(3)\nGeral(4)\n')
+        chamados_aef = input(
+            'Escolha o status\nAberto(1)\nEm andamento(2)\nFechado(3)\nGeral(4)\n')
 
         if chamados_aef == '1':
             for chamado in chamados:
@@ -203,7 +187,8 @@ def relatorio_geral():
                     quantidade_em_andamento += 1
                 elif chamado['status'] == 'resolvido':
                     quantidade_fechado += 1
-            print('Chamados total:', quantidade_aberto + quantidade_fechado + quantidade_em_andamento)
+            print('Chamados total:', quantidade_aberto +
+                  quantidade_fechado + quantidade_em_andamento)
 
         else:
             print('Opção inválida')
